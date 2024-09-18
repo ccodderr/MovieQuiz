@@ -94,6 +94,10 @@ final class MovieQuizViewController: UIViewController {
         show(quiz: currentStep)
     }
     
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return .lightContent
+    }
+    
     @IBAction private func noButtonClicked(_ sender: Any) {
         getCorrectAnswer(userAnswer: false)
     }
@@ -107,8 +111,6 @@ final class MovieQuizViewController: UIViewController {
 private extension MovieQuizViewController {
     
     func setupLayout() {
-        noButton.titleLabel?.font = UIFont(name: "YSDisplay-Medium", size: 20)
-        yesButton.titleLabel?.font = UIFont(name: "YSDisplay-Medium", size: 20)
         noButton.layer.cornerRadius = 15
         yesButton.layer.cornerRadius = 15
         imageView.layer.cornerRadius = 20
@@ -148,6 +150,8 @@ private extension MovieQuizViewController {
             imageView.layer.borderWidth = 8
             imageView.layer.borderColor = UIColor.ypRed.cgColor
         }
+        noButton.isEnabled = false
+        yesButton.isEnabled = false
     }
     
     func showNextQuestionOrResults() {
@@ -164,6 +168,9 @@ private extension MovieQuizViewController {
             
             show(quiz: viewModel)
         }
+        
+        noButton.isEnabled = true
+        yesButton.isEnabled = true
     }
     
     func showAlert() {
