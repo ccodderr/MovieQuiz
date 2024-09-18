@@ -20,19 +20,11 @@ struct QuizResultsViewModel {
 
 final class MovieQuizViewController: UIViewController {
     
-    @IBOutlet weak var counterLabel: UILabel!
-    @IBOutlet weak var imageView: UIImageView!
-    @IBOutlet weak var textLabel: UILabel!
-    @IBOutlet weak var noButton: UIButton!
-    @IBOutlet weak var yesButton: UIButton!
-    
-    @IBAction func noButtonClicked(_ sender: Any) {
-        getCorrectAnswer(userAnswer: false)
-    }
-    
-    @IBAction func yesButtonClicked(_ sender: Any) {
-        getCorrectAnswer(userAnswer: true)
-    }
+    @IBOutlet private weak var counterLabel: UILabel!
+    @IBOutlet private weak var imageView: UIImageView!
+    @IBOutlet private weak var textLabel: UILabel!
+    @IBOutlet private weak var noButton: UIButton!
+    @IBOutlet private weak var yesButton: UIButton!
     
     private var currentQuestionIndex = 0
     private var correctAnswers = 0
@@ -101,8 +93,17 @@ final class MovieQuizViewController: UIViewController {
         let currentStep = convert(model: currentQuestion)
         show(quiz: currentStep)
     }
-}
     
+    @IBAction private func noButtonClicked(_ sender: Any) {
+        getCorrectAnswer(userAnswer: false)
+    }
+    
+    @IBAction private func yesButtonClicked(_ sender: Any) {
+        getCorrectAnswer(userAnswer: true)
+    }
+}
+   
+// MARK: - Private Methods
 private extension MovieQuizViewController {
     
     func setupLayout() {
