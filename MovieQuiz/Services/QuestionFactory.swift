@@ -21,7 +21,7 @@ final class QuestionFactory: QuestionFactoryProtocol {
         delegate?.didReceiveNextQuestion(question: question)
     }
     
-   private let questions: [QuizQuestion] = [
+    private let questions: [QuizQuestion] = [
         QuizQuestion(
             image: "TheGodfather",
             text: "Рейтинг этого фильма больше чем 6?",

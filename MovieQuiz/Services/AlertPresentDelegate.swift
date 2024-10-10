@@ -6,7 +6,8 @@
 //
 
 import Foundation
+import UIKit
 
-protocol AlertPresentDelegate: AnyObject {
+protocol AlertPresentDelegate: UIViewController {
     func makeAlertModel() -> AlertModel
 }

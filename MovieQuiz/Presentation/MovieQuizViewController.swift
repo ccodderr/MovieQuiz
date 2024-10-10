@@ -63,9 +63,9 @@ final class MovieQuizViewController: UIViewController, QuestionFactoryDelegate, 
             title: "Этот раунд окончен!",
             text: """
         Ваш результат: \(correctAnswers)/\(questionsAmount)
-        \nКоличество сыгранных квизов: \(statisticService?.gamesCount ?? 0 )
-        \nРекорд: \(statisticService?.bestGame.correct ?? 0)/\(questionsAmount) (\(statisticService?.bestGame.date.dateTimeString ?? " "))
-        \nСредняя точность: \(String(format: "%.2f", statisticService?.totalAccuracy ?? 0))%
+        Количество сыгранных квизов: \(statisticService?.gamesCount ?? 0 )
+        Рекорд: \(statisticService?.bestGame.correct ?? 0)/\(questionsAmount) (\(statisticService?.bestGame.date.dateTimeString ?? " "))
+        Средняя точность: \(String(format: "%.2f", statisticService?.totalAccuracy ?? 0))%
         """,
             buttonText: "Сыграть еще раз")
         
@@ -140,7 +140,7 @@ private extension MovieQuizViewController {
     func showNextQuestionOrResults() {
         if currentQuestionIndex == questionsAmount - 1 {
             statisticService?.store(correct: correctAnswers, total: questionsAmount)
-            alertPresenter?.showAlert()
+            alertPresenter?.showAlert(alertModel: makeAlertModel())
         } else {
             currentQuestionIndex += 1
             
