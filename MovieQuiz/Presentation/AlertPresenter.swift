@@ -9,16 +9,20 @@ import Foundation
 import UIKit
 
 final class AlertPresenter: AlertPresentProtocol {
+    weak var vc: UIViewController?
     
-    weak var delegate: AlertPresentDelegate?
-
+    init(vc: UIViewController?) {
+        self.vc = vc
+    }
+    
     func showAlert(alertModel: AlertModel) {
         let alert = UIAlertController(
             title: alertModel.title,
             message: alertModel.message,
             preferredStyle: .alert
         )
-
+        alert.view.accessibilityIdentifier = "Game results"
+        
         let action = UIAlertAction(
             title: alertModel.buttonText,
             style: .default,
@@ -26,7 +30,7 @@ final class AlertPresenter: AlertPresentProtocol {
         )
 
         alert.addAction(action)
-
-        delegate?.present(alert, animated: true, completion: nil)
+        //alert.identif
+        vc?.present(alert, animated: true, completion: nil)
     }
 }
