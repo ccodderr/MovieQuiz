@@ -21,7 +21,8 @@ final class AlertPresenter: AlertPresentProtocol {
             message: alertModel.message,
             preferredStyle: .alert
         )
-
+        alert.view.accessibilityIdentifier = "Game results"
+        
         let action = UIAlertAction(
             title: alertModel.buttonText,
             style: .default,
@@ -29,7 +30,7 @@ final class AlertPresenter: AlertPresentProtocol {
         )
 
         alert.addAction(action)
-
+        //alert.identif
         vc?.present(alert, animated: true, completion: nil)
     }
 }

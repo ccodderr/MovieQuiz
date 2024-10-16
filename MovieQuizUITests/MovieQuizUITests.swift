@@ -7,6 +7,8 @@
 
 import XCTest
 
+@testable import MovieQuiz
+
 final class MovieQuizUITests: XCTestCase {
     var app: XCUIApplication!
 
@@ -24,8 +26,8 @@ final class MovieQuizUITests: XCTestCase {
 
     override func tearDownWithError() throws {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
-        app = nil
         app.terminate()
+        app = nil
     }
 
     func testExample() throws {

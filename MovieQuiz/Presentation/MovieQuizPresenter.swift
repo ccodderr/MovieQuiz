@@ -137,7 +137,7 @@ final class MovieQuizPresenter: QuestionFactoryDelegate {
         Рекорд: \(statisticService?.bestGame.correct ?? 0)/\(questionsAmount) (\(statisticService?.bestGame.date.dateTimeString ?? " "))
         Средняя точность: \(String(format: "%.2f", statisticService?.totalAccuracy ?? 0))%
         """,
-            buttonText: "Сыграть еще раз")
+            buttonText: "Сыграть ещё раз")
         
         let alert = AlertModel(
             title: result.title,
