@@ -9,9 +9,12 @@ import Foundation
 import UIKit
 
 final class AlertPresenter: AlertPresentProtocol {
+    weak var vc: UIViewController?
     
-    weak var delegate: AlertPresentDelegate?
-
+    init(vc: UIViewController?) {
+        self.vc = vc
+    }
+    
     func showAlert(alertModel: AlertModel) {
         let alert = UIAlertController(
             title: alertModel.title,
@@ -27,6 +30,6 @@ final class AlertPresenter: AlertPresentProtocol {
 
         alert.addAction(action)
 
-        delegate?.present(alert, animated: true, completion: nil)
+        vc?.present(alert, animated: true, completion: nil)
     }
 }
